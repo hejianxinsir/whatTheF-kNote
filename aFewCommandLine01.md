@@ -4,7 +4,7 @@
 2. cat
 3. mv
 4. touch
-5. 如何使用 explainshell.com
+5. How to use explainshell.com
 
 ### Use ls
 ls means 'list',list the file or directory that visible. And yes, you can't see the file hiddened.
