@@ -175,3 +175,11 @@ $ git status -sb
   ```
 
 - 此时，桌面上(对应目录下)会多出一个文件，此时已成功把 github 上的仓库下载到本地了
+
+# 如何上传更新
+- cd typoraNew01
+- touch A.md
+- git add A.md
+- git commit A.md
+- git pull
+- git push 
