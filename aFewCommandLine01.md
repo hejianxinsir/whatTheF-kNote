@@ -1,5 +1,5 @@
 # typoraNew01
-# 如何使用以下命令
+# How to use Comminds below
 1. ls
 2. cat
 3. mv
