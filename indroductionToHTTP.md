@@ -54,3 +54,12 @@ Content-Type: text/html  //Content-Type 标注了第四部分的格式。
 3. 点击第一个 （www.google.com）
 4. 点击 Response Headers
 5. 点击右侧的 view resource
+
+## 如何使用 curl 命令
+> curl命令是在命令行方式下工作，利用URL的语法进行数据的传输或者文件的传输。（引自：https://blog.csdn.net/deliciousion/article/details/78062521）
+
+命令行输入：curl -s -v -H "Frank: xxx" -- "https://www.baidu.com"  
+//这是向 www.baidu.com 发送请求，返回百度的 html 代码。其中 "Frank: xxx" 可不写。
+
+命令行输入：curl -X POST -d "1234567890" -s -v -H "Frank: xxx" -- "https://www.baidu.com"
+// -d "1234567890"，这是向 www.baidu.com 上传 1234567890 。
