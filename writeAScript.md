@@ -53,3 +53,7 @@ c. 运行 .bashrc 使配置生效：source .bashrc
 > exit
 
 此时，你执行 demo.txt aaa , 就能得到名为 aaa 的目录了。
+
+### PATH 的作用
+
+你每次在 bash 里输入命令时(如 ls)，bash 都会去 PATH 里找对应的文件，找到了就执行。
