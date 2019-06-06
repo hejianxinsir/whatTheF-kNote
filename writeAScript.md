@@ -1,4 +1,4 @@
-# 写 并 执行一个脚本
+### 写&执行一个脚本
 
 1.mkdir local
 
@@ -32,7 +32,7 @@ c. 运行 .bashrc 使配置生效：source .bashrc
 
 7. 在将 local 添加到 path 里之前，你 sh demo.txt 才能执行脚本。现在，你 demo.txt 就可以执行脚本了。
 
-# 参数
+### 参数
 在前面的脚本里，你执行 demo.txt 只会得到一个名为 demo 的文件。因为你的脚本里写的就是：
 
 > mkdir demo
