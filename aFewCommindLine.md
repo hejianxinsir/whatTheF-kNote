@@ -29,3 +29,15 @@ change file timestamps
 
 ### Use explainshell.com
 First,enter the website explainshell.com.Input the command you want to know,and explanation is below.
+
+### Another points
+<kbd>↑</kbd> <kbd>↓</kbd> 上一命令 / 下一命令
+<kbd>!</kbd><kbd>!</kbd> 上一命令占位符
+<kbd>Tab</kbd> 自动补全路径
+<kbd>Alt</kbd>+<kbd>.</kbd> 上一命令的最后一个参数
+
+&& 前面的执行成功了，再执行后面的
+|| 前面的执行失败了，就执行后面的
+；前面的执行完了，无论失败与否，就执行后面的
+> 重定向。比如 echo hello > 1.txt
+| 管道。什么意思？不知道。
