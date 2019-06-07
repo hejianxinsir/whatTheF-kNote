@@ -54,6 +54,25 @@ c. 运行 .bashrc 使配置生效：source .bashrc
 
 此时，你执行 demo.txt aaa , 就能得到名为 aaa 的目录了。
 
+另外，如果某个目录已经存在，那么终端就会报错。我们可以在 demo.txt 里先用 if 判断一下，比如把 demo.txt 写出这样：
+
+if [ -d $1 ]; then
+	echo '文件已存在~'
+	exit
+else
+	mkdir $1
+	cd $1
+	mkdir css js
+	touch index.html css/style.css js/main.js
+	exit
+fi
+
 ### PATH 的作用
 
 你每次在 bash 里输入命令时(如 ls)，bash 都会去 PATH 里找对应的文件，找到了就执行。
+
+### 其他零碎
+
+1. sh demo.txt && echo success  // && 表示如果前面成功，就执行后面的。这句话的意思是，sh demo.txt 成功了，就echo success 。
+
+2. exit 0 表示没有错误；exit 1 表示1号错误，错误代码为1 ，不是指一个错误。
