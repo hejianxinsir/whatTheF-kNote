@@ -11,6 +11,7 @@
 4. 就会响应一个 Hi 了
 
 5. 同时 response.write('Hi')  response.end() 可以更复杂，比如写成这样：
+
 > if(path == '/'){
 	response.write('Hi')
 	response.end()
@@ -22,3 +23,5 @@
 	response.statusCode = 404
 	response.end()
 }
+
+> 另，用 curl -s -v -- 'http://localhost:8888' 可以查看完整的请求和响应。
