@@ -62,9 +62,58 @@ a 标签可以下载，可以跳转链接。那怎么确定是下载还是跳链
 
 15. a 标签和 form 标签都可以跳转页面，他们的区别是，a 标签发起 get 请求，form 标签发起 post 请求。
 
-16. form 标签里必须有 input 提交按钮，否则无法提交。
+16. form 标签里必须有 input type=submit 提交按钮，否则无法提交。或者有一个没有type的button按钮，它会自动升级成提交按钮。form 本来就是给你提交表单的，你连提交按钮都没有怎么行呢？
+
 
 17. 如果一个 form 里只有一个按钮（button），<button></button> ，它会自动升级为 submit(提交) 按钮。如果<button type="button"></button>，它就是个普通按钮，不是提交按钮。提交按钮可以是<input type='submit' value='button'>。
+```
+<form action="#" method="post">
+	<label for="usN">用户名：</label><input type="text" value="userName" id="usN">
+	<label for="passW">密码：</label><input type="password" value="password" id="passW">
+	<hr>
+	或这样写：
+	<label>用户名：<input type="text" value="userName"></label>
+	<label>密码：<input type="password" value="password"></label>
+	
+</form>
+```
+18. iframe 就是当你想嵌套一个页面的时候用。由于 iframe 也是一个页面，所以里面的属性是 src 。是可替换标签。src=‘#’ 是当前页面的意思。
+
+19.
+```
+<iframe name="xxx" src="#" frameborder="0"></iframe><br>
+<a target="xxx" href="http://www.baidu.com">baidu</a><br>
+<a href="http://www.baidu.com" target="xxx">baidu01</a><br>
+
+iframe 的 src 可以填相对路径，比如：<iframe name="xxx" src="./index2.html" frameborder="0"></iframe>
+```
+
+20. a 标签的 download 属性
+```
+<a href="http://www.baidu.com" download>baidu</a>
+// 是否下载由什么决定？第一，由 a 标签的 download 决定；第二，由 http 响应的 comtent-type:application/octet-stream
+```
+
+21. a标签的href能写什么？这是重点。
+```
+1. <a href="qq.com"></a>
+会打开 qq.com 吗?不会。虽然有个 .com 但这不代表就一定是个网页，不一定是域名，它也可以是一个文件。要打开网页，正确写法是加 http、https：<a href="http:qq.com">QQ</a>
+
+2. <a href="//qq.com">QQ</a> 这意味着，当前是什么协议，我就用什么协议，自动继承协议。前面有两个杠 // ，会使用 file 协议。
+
+3. 可以写一个相对路径。<a href="xxx.html">xxx</a>。会跳转到 xxx.html 。
+
+4. <a href="#sdlf"></a>  href 里只有锚点 # 是不发起请求的。锚点是页面内的跳转。
+
+5. <a href="?name=janson"></a> 这样写是没问题的，很自然，浏览器会自动判断你要干嘛。这样写会发起请求。
+<a href="#"></a> 只写#号页面会动一下，跳到顶部。
+<a hrf=""></a>只写个空，会刷新页面。
+
+6. 伪协议。
+<a href="javascript:alert(1)"></a>
+<a href="javascript:;"></a>
+
+```
 
 
 
