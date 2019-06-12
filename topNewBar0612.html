@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            background-color: black;
+            color: white;
+            margin: 0;
+        }
+        .clearfix::after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+
+        .topNavBar > a{
+            float: left;
+            text-decoration: none;
+        }
+
+        .topNavBar > nav > ul{
+            list-style: none;
+        }
+
+        .topNavBar > nav > ul > li{
+            float: right;
+            margin: 20px 16px;
+            padding-bottom: 4px;
+            border: 1px solid transparent;
+        }
+        .topNavBar > nav > ul{
+            margin:10px 16px 0 0;
+        }
+        .topNavBar li:hover{
+            border-bottom: 3px solid #ea4c5e;
+        }
+        .topNavBar > nav > ul > li > a{
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size:12px;
+            font-weight: bold;
+        }
+        .topNavBar .rs{
+            color: #e6686a;
+            font-family: 'Arial Black';
+            font-size: 24px;
+            font-weight:bold;
+        }
+        .topNavBar .card{
+            color: #9a9da2;
+            font-family: 'Arial Black';
+            font-size: 24px;
+            margin-left: 4px;
+            font-weight:bold;
+        }
+        .topNavBar>a{
+            margin: 13px 0 11px 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topNavBar clearfix">
+        <a href="#" class="logo">
+            <span class="rs">RS</span><span class="card">card</span>
+        </a>
+        <nav>
+            <ul class="clearfix">
+                <li><a href="#">其他</a></li>
+                <li><a href="#">联系方式</a></li>
+                <li><a href="#">日历</a></li>
+                <li><a href="#">博客</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">技能</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="banner"><img src="#" alt="background"></div>
+    <section>
+        <div class="upper">
+            <img src="#" alt="myPhoto">
+            <div class="text">
+                <span class="welcome">Hello</span>
+                <h1>何建新</h1>
+                <p>前端工程师</p>
+                <dl>
+                    <dt>年龄</dt>
+                    <dd>18</dd>
+                    <dt>地址</dt>
+                    <dd>深圳市福田区</dd>
+                    <dt>邮箱</dt>
+                    <dd>39378299@gmail.com</dd>
+                    <dt>手机</dt>
+                    <dd>1873628372</dd>
+                    <dt>日期</dt>
+                    <dd>2019-10-10</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="down">
+            <ul>
+                <li><a href="#"><img src="#" alt="face"</a></li>
+                <li><a href="#"><img src="#" alt="face"</a></li>
+                <li><a href="#"><img src="#" alt="face"</a></li>
+                <li><a href="#"><img src="#" alt="face"</a></li>
+                <li><a href="#"><img src="#" alt="face"</a></li>
+                <li><a href="#"><img src="#" alt="face"</a></li>
+                <li><a href="#"><img src="#" alt="face"</a></li>
+            </ul>
+        </div>
+    </section>
+    <a href="#">Download Resume</a>
+    <p>
+        我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸
+        我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸
+        我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸我不是你爸爸。
+    </p>
+</body>
+</html>
