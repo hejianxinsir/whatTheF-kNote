@@ -4,7 +4,7 @@
 
 2. HTML5 兼容 HTML 4.01 和 XHTML。我们学的就是 HTML5 。
 
-3. head,body 标签都可以省略，具体原因查看文档。
+3. head,body 标签都可以省略，具体原因查看 MDN 文档。
 
 4. 常见标签有:a form input button h1 p ul ol small div span kbd video audio svg . 除了 div 和 span 标签，其他标签都有默认样式。
 
@@ -22,7 +22,7 @@ dl: definition list
 hr: horizontal rule
 href: hypertext reference
 
-8. 可替换标签：比如 img 标签，里面有 src=‘xxx.png’ , 浏览器就会下载这个 png 去替换这个标签。同时，这个 png 本身就有宽高，不一定需要 CSS 来控制宽高。// img 标签可以用属性来覆盖本身的宽高，在这个基础上再用 css ，css 又会覆盖属性里的宽高。也就是说 css 的优先级高于属性。
+8. 可替换标签：比如 img 标签，里面有 src=‘xxx.png’ , 浏览器就会下载这个 png 去替换这个标签。同时，这个 png 本身就有宽高，不一定需要 CSS 来控制宽高。img 标签可以用属性来覆盖本身的宽高，在这个基础上再用 css ，css 又会覆盖属性里的宽高。也就是说 css 的优先级高于属性。
 
 9. <div comtenteditable='true'>你好</div> contenteditable 属性，顾名思义，表示可修改内容。
 
@@ -35,7 +35,7 @@ href: hypertext reference
 <iframe name=xxx src=# frameborder=0></iframe>
 <a target=xxx href='http://baidu.com'>百度</a>
 <a target=xxx href='http://qq.com'>QQ</a>
-意思是，iframe 是一个窗口，百度和qq两个网站都在 iframe 里打开，这就是 target=xxx 的作用。
+意思是，iframe 是一个窗口，百度和qq两个网站都在 iframe 里打开，这就是 target=xxx 与 iframe 里 name=xxx 一起用的作用。
 
 ```
 
