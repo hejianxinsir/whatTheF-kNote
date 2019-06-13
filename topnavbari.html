@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            background: black;
+            color: white;
+            margin: 0;
+        }
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .topNavBar>nav>ul{
+            list-style: none;
+            margin: 23px 16px 0px 0;
+        }
+        .topNavBar>nav>ul>li{
+            float: right;
+            margin: 0 17px;
+            border-bottom: 3px solid transparent;
+            padding: 8px 0 4px 0;
+        }
+        .topNavBar>nav>ul>li:hover{
+            border-bottom: 3px solid #e06567;
+        }
+        .topNavBar>nav>ul>li>a{
+            color: #b7b7b7;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .topNavBar>a{
+            float: left;
+            text-decoration: none;
+            margin-left: 16px;
+            margin-top:23px;
+        }
+        .topNavBar>a>.rs{
+            font-family: "Arial Black";
+            font-size: 24px;
+            font-weight: bold;
+            color: #e6686a;
+        }
+        .topNavBar>a>.card{
+            font-family: "Arial Black";
+            font-size: 24px;
+            font-weight: bold;
+            color: #9a9da2;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topNavBar clearfix">
+        <a href="#"><span class="rs">RS</span><span class="card">card</span></a>
+        <nav style="float: right">
+            <ul class="clearfix">
+                <li><a href="#">其他</a></li>
+                <li><a href="#">联系方式</a></li>
+                <li><a href="#">日历</a></li>
+                <li><a href="#">博客</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">技能</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
