@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>taiji02</title>
+        <style type="text/css">
+            body{
+                background: gray;
+            }
+            @keyframes spin{
+                from{
+                    transform: rotate(0deg);
+                }
+                to{
+                    transform: rotate(360deg);
+                }
+            }
+            .first{
+                width: 200px;
+                height: 200px;
+                margin: 200px auto 30px;
+                border-radius: 50%;
+                background: linear-gradient(to bottom,#fff 0%,#fff 50%,#000 51%,#000 100%);
+                position: relative;
+
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-name: spin;
+                animation-timing-function: linear;
+            }
+            .first::before{
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                content: '';
+                border: 40px solid black;
+                border-radius: 50%;
+                top: 25%;
+                background: white;
+            }
+            .first::after{
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                content: '';
+                border: 40px solid white;
+                border-radius: 50%;
+                top: 25%;
+                right: 0;
+                background: black;
+            }
+            p{
+                margin: 0 575px;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='first'></div>
+        <p>道生一，一生二，二生三，三生万物</p>
+    </body>
+</html>
