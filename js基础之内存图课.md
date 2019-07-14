@@ -4,12 +4,15 @@
 var n = 1
 n.toString()  //'1'
 
+var n = 1
+n.toString()  //'1'
+
 第二种：
 1 + ‘’  //'1'
 '' + 1 //'1'  加号写前面也可以
 
 注意：加号可以把任何东西变成字符串，比 toString 的功能更强大。甚至可以把 undefined 和 null 也变成字符串。
-'' + null  //'null'
+'' + null  //'null'  //''+ null
 '' + undefined //'undefined'
 
 null.toString()  //Uncaught TypeError: Cannot read property 'toString' of null
@@ -20,6 +23,10 @@ window.String(1)  //'1'
 window.String(null)  //'null'
 window.String(undefined) //'undefined'
 window.String(true)  //'true'
+
+window.String(1)
+window.String(null)
+window.String(true)
 ```
 
 2. 不同类型的东西是不能相加的。
@@ -40,6 +47,7 @@ window.String(true)  //'true'
 - !!({}) //true
 - !!null //false
 - !!undefined //false
+- !!0  //false
 
 4. 转为 number 的方法如下。
 - Number('1')  //1
@@ -51,7 +59,7 @@ window.String(true)  //'true'
 
 - parseFloat('1.23')  //1.23
 
-- '1' - 0  //1  任意字符减 0 就行。这一种是最常用的，明显最简单嘛。
+- *'1' - 0  //1  任意字符减 0 就行。这一种是最常用的，明显最简单嘛。*
 
 - + ‘1’  //加号是取正的意思。在字符串前面加个加号就能转为数字了。减号也可以用。
 - + ('-1')  //-1  结果还是 -1 ，加号是取原本数字值的意思。
