@@ -69,3 +69,54 @@ Boolean {true}
 console.log(b)
 VM4310:1 Boolean {true}__proto__: Boolean[[PrimitiveValue]]: true
 undefined
+
+// window.alert(1)  window 是全局的，可以省略不写。
+// 共用属性就是不要重复声明属性，不浪费内存。所有对象都用那一个就行了。
+
+var o1 = new Object();
+var o2 = new Object();
+undefined
+o1 === o2
+false
+o1.toString === o2.toString
+true
+// o1 o2 共用了那个共用属性 toString 所以 o1.toString === o2.toString
+
+// object 的共有属性是所有对象的共有属性了，他是最底层的共有属性，自己没有 _ _ proto _ _ 指向别的共有属性了。
+
+// 截图的一连串指向，就是原型链。
+
+// 原型就是共有属性的意思。object 的共有属性是 Object.prototype
+undefined
+var a = new Object();
+a.__prototype === Object.prototype
+false
+a.__prototype__
+undefined
+var a = new object();
+a.__proto__
+VM1723:1 Uncaught ReferenceError: object is not defined
+    at <anonymous>:1:9
+(anonymous) @ VM1723:1
+var a = {};
+a.__proto__ === Object.prototype
+true
+var n1 = new Number(1);
+n1.__proto__ === Number.prototype
+true
+ni.__proto__.__proto__ === Number.prototype
+VM2136:1 Uncaught ReferenceError: ni is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM2136:1
+n1.__proto__.__proto__ === Number.prototype
+
+false
+n1.__proto__.__proto__ === Object.prototype
+
+
+true
+var z1 = new String('1');
+z1.__proto__ ===String.prototype
+true
+z1.__proto__.__proto__ === Object.prototype
+true
