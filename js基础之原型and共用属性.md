@@ -1,7 +1,6 @@
 全局对象，标准是叫 global，浏览器里面叫 window .
 
 var n2 = new Number(1);
-undefined
 console.log(n2)
 VM164:1 Number {1}__proto__: Numberconstructor: ƒ Number()toExponential: ƒ toExponential()toFixed: ƒ toFixed()toLocaleString: ƒ toLocaleString()toPrecision: ƒ toPrecision()toString: ƒ toString()valueOf: ƒ valueOf()__proto__: Object[[PrimitiveValue]]: 0[[PrimitiveValue]]: 1
 undefined
@@ -120,3 +119,13 @@ z1.__proto__ ===String.prototype
 true
 z1.__proto__.__proto__ === Object.prototype
 true
+
+// var aa = new bbb()  这里的 aa 是对象，这里的 bbb 是函数对象，后面可以接参数。
+// var 对象 = new 函数()  对象.__proto__ === 函数.prototype  这是重点。这里 __proto__ 和 prototype 的区别是什么？答案是，前者是对象的属性，后者是函数的属性。这两者是同一个对象，指向同一个地址。
+var a = new Number(1);
+var b = new String(‘1’);
+var c = new Object()
+
+// 问：'1'.__proto__ 怎么解释？ ‘1‘是基本数据类型，没有 key 没有属性的说法。实际上 '1' 会临时变成 String 对象，所以 ‘1’.__proto__ 就变成了 new String('1')  于是指向了 String.prototype。其他数据类型同理。
+
+// 对象.__proto__ === 函数.prototype
