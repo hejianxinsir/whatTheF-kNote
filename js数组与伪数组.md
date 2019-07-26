@@ -97,12 +97,19 @@ a.forEach 里面一定是一个函数，函数里面一定有三个参数，第�
 
 15. a.sort()  数组排序  js内置的排序一般是快排。
 ```
+// 按分数从大到小依次排列
+
+var students = ['小明','小红','小花']
+var scores = { 小明: 59, 小红: 99, 小花: 80 } 
+students.sort( function(x,y){
+	return scores[y] - scores[x]
+} )
+
+//
 a = [1,4,2,3,5,7,8];
 a.sort()  // [1, 2, 3, 4, 5, 7, 8]
-
-a.sort( function(x,y){ return x-y } )  // 这样写一般是从小到大。决定前后顺序。
-
-a.sort( function(x,y){ return y-x } )  // 这样写一般是从大到小排
+a.sort( function(x,y){ return x-y } )
+a.sort( function(x,y){ return y-x } )  
 ```
 
 16. 数组变字符串也可以用加 ‘’ 的方式
@@ -131,17 +138,33 @@ var b = a.concat([])
 b  //[1,2,3]  但是 a===b 是false ，因为 b 是一个新数组。如果给 b 直接赋值 [1,2,3] ,那么 a===b 就是 true
 ```
 
-18. a.map 和 a.forEach 功能一样，但有个区别就是 map 会把里面的函数操作的结果收集起来返回新的数组，而 forEach 返回的是 undefined 
+18. a.map
+- a.forEach 功能一样，但有个区别就是 map 会把里面的函数操作的结果收集起来返回新的数组，而 forEach 返回的是 undefined 
 ```
 a = [1,2,3]
 a.map( function(value,key){ return value*2 } )
 (3) [2, 4, 6]
 a.map( value => value*2 )
 (3) [2, 4, 6]
+
+
+a.map( function(value,key){
+	return value*value
+} )
+
+// filter 和 map 一起用
+a.filter( function(value,key){
+	if( value%2 === 0){
+		return value 
+	}
+} ).map( function( value,key ){
+	return value*value
+} )
 ```
 
 19. filter
 ```
+// 一个例子
 a = [1,2,3,4,5,6,7]
 a.filter( function(value,key){
 	return value  > 5
@@ -151,11 +174,21 @@ a.filter( function(value,key){
 filter 跟 map 很像，区别是 filter 要过滤掉一些东西，把符合条件的东西返回出去。
 
 原本的数组 a 是不变的，只有 sort 方法会改变 a 本身。
+
+// 另一个例子
+var a = [1,2,3,4,5,6,7,8,9]
+// a.filter(???).map(???) // [4,16,36,64]
+
+a.filter( function(value,key){
+	if( value%2 === 0 ){
+		return value 
+	}
+} )
 ```
 
 20. reduce 
 ```
-一下是用 reduce 求和
+以下是用 reduce 求和
 a = [1,2,3,4,5]
 
 a.reduce( function(sum,n){
@@ -163,10 +196,22 @@ a.reduce( function(sum,n){
 },0 )
 // 15
 
-还可以用箭头函数写：
-a.reduce( (sum,n) => sum + n , 0  )  一样的效果
+// 还可以用箭头函数写：a.reduce( (sum,n) => sum + n , 0  )  一样的效果
 
 reduce 可以用来求和。reduce 括号里面必须有两个参数，一个是函数，另一个是初始值。函数里必须有两个参数，第一个是上一次的结果，第二个是数组里的某个数值 n 。 意思是初始的总值为 0 ，然后把上一次的结果再加数组里的某个值，一直加完，就是总合计的值了。
+
+
+// 另一个例子：对所有奇数求和
+var a = [1,2,3,4,5,6,7,8,9]
+
+a.reduce( function(arr,n){
+	if( n%2 !== 0 ){
+		arr.push(n)
+	}
+	return arr 
+},[] ).reduce( function(sum,n){
+	return sum + n 
+},0 ) 
 ```
 
 21. map 可以用 reduce 表示
@@ -200,4 +245,7 @@ a.reduce( function(arr,n){
 
 [2, 4, 6, 8, 10]
 ```
+
+23. a.reverse()
+- 就是把一个数组的顺序倒过来，查 reverse mdn 就行了。
 
