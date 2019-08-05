@@ -85,9 +85,27 @@ allDiv.length // 请问现在 length 的值是多少？？？
 
 ** 这个考题考的是 querySelectorAll() 这个方法是否是动态的。注意，它不是动态的。 **
 
+另一个考题：
+var div = document.getElementById('x')
+var $div = $('#x')
+
+请说出 div 和 $div 的联系和区别。
+
+这是面试题，参考答题结构：
+
+div 和 $div 的联系是：
+只要这样这样这样就可以把 div 变成 $div
+只要那样那样那样就可以把 $div 变成 div
+div 和 $div 的区别是：
+div 的属性和方法有 xxx xxx xxx
+$div 的 属性和方法有 xxx xxx xxx
+
 ## 其他
 - 浏览器原生提供document节点，代表整个文档。
 - 所有 DOM 节点对象都继承了 Node 接口，拥有一些共同的属性和方法。这是 DOM 操作的基础。
 - nodeValue属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。只有文本节点（text）、注释节点（comment）和属性节点（attr）有文本值，因此这三类节点的nodeValue可以返回结果，其他类型的节点一律返回null。
 - arguments 和 DOM API 获取的 elements 都是伪数组。原型链中没有 array.prototype
 - innerText 就是全文本的，即便用户写了一个标签，也会把标签当文本代码解析；而 innerHTML 会解析 html 代码，千万不要使用。
+- this 是 call 的第一个参数
+
+** 在用 jQuery 的时候在前面加个 $ 就不会记混你用的是 DOM API 还是 jQuery API 了 。**
