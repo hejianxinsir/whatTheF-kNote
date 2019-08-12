@@ -104,8 +104,21 @@ $div 的 属性和方法有 xxx xxx xxx
 - 浏览器原生提供document节点，代表整个文档。
 - 所有 DOM 节点对象都继承了 Node 接口，拥有一些共同的属性和方法。这是 DOM 操作的基础。
 - nodeValue属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。只有文本节点（text）、注释节点（comment）和属性节点（attr）有文本值，因此这三类节点的nodeValue可以返回结果，其他类型的节点一律返回null。
+
 - arguments 和 DOM API 获取的 elements 都是伪数组。原型链中没有 array.prototype
 - innerText 就是全文本的，即便用户写了一个标签，也会把标签当文本代码解析；而 innerHTML 会解析 html 代码，千万不要使用。
 - this 是 call 的第一个参数
+
+- <div id="parent"></div> 这个时候，parent 就不是对应的ELEMENT对象了，因为全局属性里本来就有 parent 。所以此时的 parent 是 window。window 里的所有属性你都不能用！
+- 所以不要用全局变量，其次可以用局部变量，这样就不会和 window 里的属性冲突了。
+- 声明一个函数后立即调用函数，如 function(){}.call() 。你这样写，有时候浏览器会报错，虽然是没错的，这时候你可以把整个函数调用包起来，如(function(){}.call()) 或 (function(){}).call()  或用加减号  -function(){}.call()
+
+- var 只看函数，如果他发现旁边没有函数，就声明一个全局变量，所以不推荐使用 var 而推荐用 let
+- { var parent = document.querySelector('#div1') } 用 var 实际上 var 会有代码提升，会成为全局变量，于是 parent 就覆盖了 window 的全局变量。而这样： { let parent = document.querySelector('#div1') } 用 let 就不会有代码提升，他在哪里就是哪里。
+- childNodes 返回的是一个伪数组。
+
+- 不要用全句变量，要用立即执行函数。
+- arguments  HTML 获取的节点、列表 都是伪数组。
+- img 标签是可替换元素。在一张图片下载完之前，img 本来就会生成一个占位符。一般来说，如果你知道图片的宽高，就要直接给 img 设置宽高，因为当图片下载完后，就自动替换占位符的位置了且宽高一样。否则，后面的元素要往后退才能让出位置给你要下载的图片。
 
 ** 在用 jQuery 的时候在前面加个 $ 就不会记混你用的是 DOM API 还是 jQuery API 了 。**
