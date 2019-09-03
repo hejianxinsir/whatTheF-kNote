@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<title>适配移动端-期中考试第二题</title>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, 
+	minimum-scale=1.0 user-scalable=no ">
+
+</head>
+<body>
+	<p>
+		一、meta name=viewport
+
+		以前都是电脑上网，后来出现了手机和平板电脑，所以页面显示的时候也要适配这些设备，这就是移动端适配。用 <meta> 标签控制，注意，meta 标签没有闭合标签。
+
+		w3schools 的介绍: The viewport is the user's visible area of a web page.The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen.Before tablets and mobile phones, web pages were designed only for computer screens, and it was common for web pages to have a static design and a fixed size.Then, when we started surfing the internet using tablets and mobile phones, fixed size web pages were too large to fit the viewport. To fix this, browsers on those devices scaled down the entire web page to fit the screen.This was not perfect!! But a quick fix.
+
+		```
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		```
+		1. width=device-width 顾名思义，就是根据设备的尺寸自动适配宽度。
+
+		2. initial-scale 设置好浏览器第一次加载时的缩放比例。The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.
+
+		3. maximun-scale 和 minimum-scale 用来设置最大缩放和最小缩放的比例。
+
+		4. user-scalable 是否允许用户调整缩放比例，取值为 yes/no.
+	</p>
+	<p>
+		二、媒体查询
+
+		代码如下：
+
+		@media (max-width: 800px){
+			body{
+				background: red;
+			}
+		}		// 最大宽度为 800px 时，即 0-800px 范围内，都执行这个代码。
+
+		@media (min-width: 1000px){
+			body{
+				background: blue;
+			}
+		}		// 最小宽度为 1000px 时，即大于 1000px 的范围，都执行这个代码。
+
+		注意，有时候你写的像素范围会重叠，此时，哪个代码在下面，则以这个代码呈现最终效果。虽然其他代码会执行，但会被覆盖。
+
+		另一种写法是：
+
+		@media (min-width: 100px) and (max-width: 800px){
+			background: pink;
+		}		// 这样你就指定了像素范围，更具体了，基本不用考虑范围的重叠。注意代码的写法。
+
+
+	</p>
+</body>
+</html>
