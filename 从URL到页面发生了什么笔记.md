@@ -36,4 +36,28 @@ curl -s -v -- "https://www.baidu.com"
 curl -X POST -d "1234567" -s -v -- "https://www.baidu.com"	// -d "1234567" data 的意思，我要上传1234567这些数据	// 此时的 POST 请求里有 Content-Length: 7 就是我上传数据的长度。
 ```
 
+12. 请求和响应中，get post 就是字面意思的区别，一个是获取，一个是上传，其他没区别了。
 
+13. 请求和响应中，动词有 get post put patch delete head options。put 是整体更新，五行话替换成一行话；patch 是局部更新，更新五行话中的一行。head options 暂时不用理解。
+
+14. http 一定要接受以 / 开头的路径，在请求头中 / 没什么特殊含义,就是指路径。请求中，第三部分是个回车，必须有，不能删除。永远是个回车。第三部分的目的是区分第二和第四部分。第二部分是 key : value 。第四部分是要上传的数据。
+
+15. 请求最多包含 4 部分，最少有三部分，也就是说，第四部分可以省略。如果你不遵守协议，服务器就理解不了你。
+
+16. 请求中的路径，包含查询字符串，但是不包含锚点。锚点是浏览器看的，服务器不看。如果你没写路径，路径默认为 / 。第二部分中的 Content-type 标注了第四部分的格式。
+
+17. Content-type: application/x-www-form-urlencoded 解释一下，application-应用数据;x- 指没有写入规范的格式；www 就是万维网；form 表单；urlencoded 指用 urlencoded 的形式压缩。
+
+18. 响应的格式
+```
+协议/版本号 状态码 状态解释
+key:value
+key:value
+Content-Length: 19832
+Content-Type: text/html
+
+要下载的内容
+```
+状态码：200-普通成功 204-创建成功 301-永久搬走了 302-外出了，过几天回来，临时不在 304-滚，我这次说的话和上次一样，你直接用上次下载的内容就行了 404-你错了 5xx-我服务器错了
+
+19. Content-Type 遵循 MIME 规范。Connection 设置为 Keep-alive 用于告诉客户端本次 HTTP 请求结束之后不需要关闭 TCP 连接。这样可以使下次 HTTP 请求使用相同的 TCP 通道，节省 TCP 连接建立的时间。
