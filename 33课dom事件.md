@@ -86,5 +86,25 @@ $(document).on('click',function()
 
 // 阻止默认事件的话，checkbox 就无法选中了。
 ```
+5. 当你没有看页面的时候，js 会偷懒，于是就出 bug 了。解决办法是，当用户
 
-5. 如果在用 one.() 监听一次，点击 clickMe 也不会出先浮层，因为监听一次的时候，他的速度太快了，你点击了一下，依然是点击了 document ，所以还是执行了 display: none。怎么解决？一种是 stopPropagation() ,另一种是用 setTimeout()。在《点击别处关闭浮层》那个视频。
+6. 如果在用 one.() 监听一次，点击 clickMe 也不会出先浮层，因为监听一次的时候，他的速度太快了，你点击了一下，依然是点击了 document ，所以还是执行了 display: none。怎么解决？一种是 stopPropagation() ,另一种是用 setTimeout()。在《点击别处关闭浮层》那个视频。
+
+7. 当用户没看页面的时候，js 会偷懒出 bug，既然你没看了，我就不消耗那么多资源去动了。解决办法是，当用户没看页面的时候，我砸了那个 timer ，当用户回来的时候再设置 timer 即可。这个 API 是 visibilitychange。
+```
+document.addEventListener('visibilitychange',function(e){
+	if(document.hidden){
+		window.clearInterval(timer)
+	}else{
+		timer = setInterval(()=>{
+			makeLeave(getImage(n))
+				.one('transitioned',(e)=>{
+					makeEnter($(e.currentTarget))
+				})
+			makeCurrent(getImage(n+1))
+			n += 1
+		},3000)
+	}
+}
+```
+
