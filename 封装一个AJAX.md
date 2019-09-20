@@ -18,10 +18,7 @@ myButton.addEventListener('click',(e)=>{
 	window.jQuery.ajax({
 		url: '/xxx',
 		method: 'get',
-		headers: {
-			'content-type': 'application/x-www-form-urlencoded',
-			'frank': '18'
-		}
+		success: (x)=>{
 	}).then(
 		(text)=>{console.log(text)},
 		(request)=>{console.log(request)}

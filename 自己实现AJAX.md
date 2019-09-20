@@ -117,4 +117,11 @@ resolve.call(undefined, request.responseText)
 reject.call(undefined,request)
 ```
 
+14. 背下来：
+```
+return new Promise(function(resolve,reject)){}
+```
 
+15. promise 接收一个函数，返回一个带 then 的哈希;then 接收两个函数，第一个是成功函数，一个是失败函数；then 返回一个带 then 的哈希。
+
+16. AJAX 要符合 promise 的写法，就return new promise(Fn)，把要做的事放在 promise 里面，成功了就调 resolve，失败了就调 reject。
