@@ -76,3 +76,7 @@ window.a = function(){
 7. MVC  指的是 html view controller . 所有的代码都能给个 view 给个 controller，controller 操作 view。这就简化了。
 
 8. 箭头函数，没有 this. 箭头函数内外，this 不变。
+
+9. MVC 是什么？
+- Model View Ctroller ，所有数据相关的东西放在 Model 里；View 是视图，用户看得见的区域；Ctroller 是控制器，是逻辑（其他）相关。
+- 整个过程是这样的：model 去请求服务器，服务器响应给 model。controller 调用 model , model 返回数据给 controller；view 通知 controller ，controller 监听并更新 view。  
