@@ -50,13 +50,12 @@ xxx
 }.call()
 
 // 另一文件
-```
+
 !function(){
 	var frankGrowUp = window.frankGrowUp
 	var newAge = frankGrowUp()
 	console.log(newAge)
 }.call()
-```
 ```
 
 6. 返回一个匿名函数的函数
