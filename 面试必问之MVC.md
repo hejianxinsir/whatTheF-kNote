@@ -50,13 +50,12 @@ xxx
 }.call()
 
 // 另一文件
-```
+
 !function(){
 	var frankGrowUp = window.frankGrowUp
 	var newAge = frankGrowUp()
 	console.log(newAge)
 }.call()
-```
 ```
 
 6. 返回一个匿名函数的函数
@@ -73,7 +72,7 @@ window.a = function(){
 }
 ```
 
-7. MVC  指的是 html view controller . 所有的代码都能给个 view 给个 controller，controller 操作 view。这就简化了。
+7. MVC  指的是 model view controller . 所有的代码都能给个 view 给个 controller，controller 操作 view。这就简化了。
 
 8. 箭头函数，没有 this. 箭头函数内外，this 不变。
 

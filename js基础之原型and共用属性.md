@@ -1,21 +1,25 @@
-全局对象，标准是叫 global，浏览器里面叫 window .
+- 全局对象，标准是叫 global，浏览器里面叫 window .
 
+```
 var n2 = new Number(1);
 console.log(n2)
 VM164:1 Number {1}__proto__: Numberconstructor: ƒ Number()toExponential: ƒ toExponential()toFixed: ƒ toFixed()toLocaleString: ƒ toLocaleString()toPrecision: ƒ toPrecision()toString: ƒ toString()valueOf: ƒ valueOf()__proto__: Object[[PrimitiveValue]]: 0[[PrimitiveValue]]: 1
 undefined
 n2.valueOf()
 1
-n2.toString()
+n2.toString()   
 "1"
-// var n2 = new Number(1) 变成函数后，就有很多方法用了。
+```
 
-// 如果是 var n1 = 1,那 n1 就是个普通值而已。存在 stack 里。而上面的 n2 是一个对象，存在 stack 里的是一个地址；这个对象有很多方法可以用。
+- var n2 = new Number(1) 变成函数后，就有很多方法用了。
 
-// var n2 = new Number(1) 这种声明有很多方法可以用。同时 var n2 = 1 这样声明也可以使用一样多的方法，为什么？因为 Brendan Eich 设计时，要满足像 Java 的要求，又要满足自己的审美需求，所以设计 var n2 = 1 的时候，也设计了 temp = new Number(n) , 这是一个临时的东西，给 var n2 = 1 这种简单声明方式用的，用完就删除了。所以 var n2 = new Number(1) 这种方式几乎没人用。
+- 如果是 var n1 = 1,那 n1 就是个普通值而已。存在 stack 里。而上面的 n2 是一个对象，存在 stack 里的是一个地址；这个对象有很多方法可以用。
 
-//所以，一个基本类型，可以去 n.xxx (可以去 .xxx),因为他其实是个临时对象。用完了就被回收掉，没了。
+- var n2 = new Number(1) 这种声明有很多方法可以用。同时 var n2 = 1 这样声明也可以使用一样多的方法，为什么？因为 Brendan Eich 设计时，要满足像 Java 的要求，又要满足自己的审美需求，所以设计 var n2 = 1 的时候，也设计了 temp = new Number(n) , 这是一个临时的东西，给 var n2 = 1 这种简单声明方式用的，用完就删除了。所以 var n2 = new Number(1) 这种方式几乎没人用。
 
+- 所以，一个基本类型，可以去 n.xxx (可以去 .xxx),因为他其实是个临时对象。用完了就被回收掉，没了。
+
+```
 var s = 'wesdfvsdfv';
 var n2 = new String(s);
 undefined
@@ -34,12 +38,14 @@ n2[0]
 97
 'a'.charCodeAt(0).toString(16)  //这是获取 a 的十六进制的码点
 "61"
+```
 
-//去掉字符串前后的空格，的方法是， .trim()
+- 去掉字符串前后的空格，的方法是， .trim()
 '      username'.trim();
 "username"
 
-// 连接两个字符串
+- 连接两个字符串
+```
 undefined
 var s1 = 'Hello';
 var s2 = 'World';
@@ -49,15 +55,16 @@ s1
 "Hello"
 s2
 "World"
+```
 
-// .slice(0,2) 方法就是切片的意思，比如：
+- .slice(0,2) 方法就是切片的意思，比如：
+```
 s1.slice(0,2);
 "He"
 这里的 .slice(0,2) 包前不包后，指的是第 0 个和第 2 个的前面那一个，不包括第 2 个字符。所以打出来的是 "He"
 VM3671:1 Uncaught SyntaxError: Unexpected identifier
 s2.slice(0,5)
 "World"
-
 // .replace('e','o') 替换的方法。比如：
 s1
 "Hello"
@@ -65,10 +72,12 @@ s1.replace('H','X');
 "Xello"
 s1
 "Hello"
+```
 
-// 这些方法只是得到一个新的字符串，并没有改变原来的字符。
+- 这些方法只是得到一个新的字符串，并没有改变原来的字符。
 
-//现在看 Boolean
+- 现在看 Boolean
+```
 var a = true;
 var b = new Boolean(true)
 undefined
@@ -79,11 +88,12 @@ Boolean {true}
 console.log(b)
 VM4310:1 Boolean {true}__proto__: Boolean[[PrimitiveValue]]: true
 undefined
+```
 
-// window.alert(1)  window 是全局的，可以省略不写。
+- window.alert(1)  window 是全局的，可以省略不写。
 
-// 共用属性就是不要重复声明属性，不浪费内存。所有对象都用那一个就行了。
-
+- 共用属性就是不要重复声明属性，不浪费内存。所有对象都用那一个就行了。
+```
 var o1 = new Object();
 var o2 = new Object();
 undefined
@@ -91,16 +101,17 @@ o1 === o2
 false
 o1.toString === o2.toString
 true
+```
 
-// o1 o2 共用了那个共用属性 toString 所以 o1.toString === o2.toString
+- o1 o2 共用了那个共用属性 toString 所以 o1.toString === o2.toString
 
-// object 的共有属性是所有对象的共有属性了，他是最底层的共有属性，自己没有 _ _ proto _ _ 指向别的共有属性了。
+- object 的共有属性是所有对象的共有属性了，他是最底层的共有属性，自己没有 _ _ proto _ _ 指向别的共有属性了。
 
-// 截图的一连串指向，就是原型链。
+- 截图的一连串指向，就是原型链。
 
-// 原型就是共有属性的意思。object 的共有属性是 Object.prototype
-undefined
+- 原型就是共有属性的意思。object 的共有属性是 Object.prototype
 
+```
 var a = new Object();
 
 a.__prototype === Object.prototype
@@ -146,11 +157,12 @@ z1.__proto__ ===String.prototype
 true
 z1.__proto__.__proto__ === Object.prototype
 true
+```
 
-// var aa = new bbb()  这里的 aa 是对象，这里的 bbb 是函数对象，后面可以接参数。
+- var aa = new bbb()  这里的 aa 是对象，这里的 bbb 是函数对象，后面可以接参数。
 
-// var 对象 = new 函数()  对象.__proto__ === 函数.prototype  这是重点。这里 __proto__ 和 prototype 的区别是什么？答案是，前者是对象的属性，后者是函数的属性。这两者是同一个对象，指向同一个地址。
-
+- var 对象 = new 函数()  对象.__proto__ === 函数.prototype  这是重点。这里 __proto__ 和 prototype 的区别是什么？答案是，前者是对象的属性，后者是函数的属性。这两者是同一个对象，指向同一个地址。
+```
 var a = new Number(1);
 var b = new String(‘1’);
 var c = new Object()
@@ -158,3 +170,4 @@ var c = new Object()
 // 问：'1'.__proto__ 怎么解释？ ‘1‘是基本数据类型，没有 key 没有属性的说法。实际上 '1' 会临时变成 String 对象，所以 ‘1’.__proto__ 就变成了 new String('1')  于是指向了 String.prototype。其他数据类型同理。
 
 // 对象.__proto__ === 函数.prototype
+```
