@@ -1,4 +1,4 @@
-index.html
+## index.html
 ```
 button.addEventListener('click', (e)=>{
 	let script = document.createElement('script')
@@ -21,7 +21,8 @@ button.addEventListener('click', (e)=>{
 	}
 })
 ```
-index.js  服务器
+
+## index.js  服务器
 ```
 else if(path === '/pay'){
 	var amount = fs.readFileSync('./db','utf8')
@@ -34,3 +35,68 @@ else if(path === '/pay'){
 	`)
 }
 ```
+注意两点行业约定：
+1. 本来叫 callbackName 但约定为 callback
+2. callback 的名字是一个随机数，这样就不会污染全局变量了。
+3. 用 jQuery 的时候，jQuery 会自动帮你加 callback（随机数）。
+
+## jQuery 写法
+```
+button.addEventListener('click', (e)=>{
+	$.ajax({
+		url: "http://jack.com:8002/pay",
+		dataType: "jsonp",
+		success: function(response){
+			amount.innerText = amount.innerText - 1
+		}
+	})
+})
+// 这个跟 ajax 没关系，虽然代码里有 ajax 这个单词。
+```
+面试题：jsonp 为什么不支持 ajax？
+答: jsonp 是动态创建 script 实现的，动态创建 script 只能用 get 不能用 post。
+
+// script 加 callback 参数，就是 jsonp 了。
+
+## img 发请求：
+```
+<script>
+	var image = document.createElement('img')
+	image.src='/xxx'
+	image.onload = function(){ console.log('success') }
+	image.onerror = function(){ console.log('fail') }
+</script>
+```
+
+## form 发请求：
+```
+<form action="/xxx" method=post>
+	<input type="password" name="password">
+	<input type="submit">
+</form>
+```
+
+## a 标签发请求：
+```
+<a id="x" href="/xxx">click</a>
+<script>
+	setTimeout(function(){
+		x.click()
+	}, 3000)
+</script>
+```
+
+## link 发请求
+```
+<script>
+	var link = document.createElement('link')
+	link.rel = 'stylesheet'
+	link.href = '/xxx'
+	document.head.appendChild(link)
+</script>
+```
+
+- http 第四部分永远是字符串。你才返回对象，你全家都返回对象。
+- JSONP 用 json 来返回东西
+- window.JSON.parse(string) 把符合 JSON 语法的字符串转成 JS 对应的值。
+
