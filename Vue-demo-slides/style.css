@@ -1,0 +1,12 @@
+.window{
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+}
+
+.slides{
+	width: 300px;
+	height: 100px;
+	background: rgba(0,0,0,0.1);
+	transition: all 1s;
+}
